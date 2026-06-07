@@ -495,7 +495,22 @@ Für mein ePortfolio ordne ich die Themen bewusst nicht zufällig, sondern entla
 
 \end{enumerate}
 
-Diese Reihenfolge ist wichtig, weil moderne KI nicht nur aus einem einzelnen Algorithmus besteht. Ein vollständiges KI-System benötigt Daten, Vorverarbeitung, Modellbildung, Training, Evaluation und Erklärbarkeit. Dadurch kann ich im Portfolio nicht nur theoretische Grundlagen darstellen, sondern auch einen praktischen und reflektierten KI-Prozess dokumentieren.
+Diese Reihenfolge ist wichtig, weil moderne KI nicht nur aus einem einzelnen Algorithmus besteht. Ein vollständiges KI-System benötigt Daten, Vorverarbeitung, Modellbildung, Training, Evaluation und Erklärbarkeit. Dadurch kann ich im Portfolio nicht nur theoretische Grundlagen darstellen, sondern auch einen praktischen und reflektierten KI-Prozess .
+
+\begin{table}[h]
+\centering
+\begin{tabular}{p{3cm}p{4cm}p{4cm}p{3cm}}
+\toprule
+\textbf{Thema} & \textbf{Ziel} & \textbf{Typisches Experiment} & \textbf{Reflexionsfrage} \\
+\midrule
+Data Mining & Muster in Daten entdecken & Datenanalyse und Visualisierung & Was sagen die Daten ueber das Problem? \\
+Machine Learning & Aus Daten Vorhersagen lernen & Klassifikation mit Entscheidungsbaum oder kNN & Generalisiert das Modell auf neue Daten? \\
+Deep Learning & Komplexe Muster mit neuronalen Netzen lernen & MLP oder Bildklassifikation & Ist ein komplexes Modell wirklich notwendig? \\
+Erklaerbare KI & Entscheidungen nachvollziehbar machen & Entscheidungsbaum visualisieren oder SHAP/LIME testen & Kann ein Mensch die Entscheidung verstehen? \\
+\bottomrule
+\end{tabular}
+\caption{Vergleich von Data Mining, Machine Learning, Deep Learning und erklaerbarer KI}
+\end{table}.
 \subsection{Mein methodisches Vorgehen im Portfolio}
 
 Fuer jedes Thema verwende ich dieselbe wissenschaftliche Struktur:
@@ -590,7 +605,376 @@ Durch dieses Experiment wurde deutlich, dass Data Mining ein wichtiger Schritt v
 Besonders auffällig war, dass sich \textit{Iris setosa} bereits mit zwei Merkmalen klar von den anderen Arten unterscheiden lässt. Dies zeigt, dass einfache explorative Methoden bereits wertvolle Hinweise für spätere Modellierungsentscheidungen liefern können. Gleichzeitig wurde sichtbar, dass eine einzelne Visualisierung nicht ausreicht, um die gesamte Datenstruktur vollständig zu erfassen.
 
 Für mein ePortfolio ist dieses Experiment deshalb wichtig, weil es den Übergang von theoretischem Wissen zu praktischer Datenanalyse zeigt. Ich dokumentiere nicht nur, was Data Mining bedeutet, sondern auch, wie erste Muster mit Python sichtbar gemacht und kritisch interpretiert werden können.
+\subsection{Aufgabe 3: k-Means-Clustering und k-Nächste-Nachbarn}
 
+In Aufgabe 3 wird untersucht, ob sich anhand verschiedener Wachstumsfaktoren natürliche Gruppen innerhalb einer kleinen Pflanzendatenmenge bilden lassen. Die gegebene Tabelle enthält insgesamt 16 Datenpunkte mit den Merkmalen Feuchte, Säuregrad, durchschnittliche Temperaturminima und Wachstum. Für die Teilaufgabe 3a sollen zunächst nur die ersten zehn Datenpunkte verwendet und mit dem k-Means-Verfahren in zwei Cluster eingeteilt werden. Dabei ist vorgegeben, dass $k=2$ gilt und die Datenpunkte 1 und 8 als initiale Clusterzentren verwendet werden. Anschließend sollen in Teilaufgabe 3b die Datenpunkte 11 und 16 mithilfe des k-Nächste-Nachbarn-Verfahrens den zuvor entstandenen Clustern zugeordnet werden .
+
+\subsubsection{Ziel der Aufgabe}
+
+Das Ziel dieser Aufgabe besteht darin, den Unterschied und den Zusammenhang zwischen Clustering und Klassifikation praktisch zu verstehen. Beim Clustering werden Datenpunkte ohne vorgegebene Zielklasse in Gruppen eingeteilt. Das Verfahren versucht also, Ähnlichkeiten in den Eingabedaten selbst zu erkennen. Im Gegensatz dazu ordnet ein Klassifikationsverfahren neue Datenpunkte bereits bekannten Klassen oder Gruppen zu.
+
+In dieser Aufgabe wird zuerst mit k-Means ein Clustering durchgeführt. Danach werden neue Datenpunkte mithilfe von k-Nächste-Nachbarn einem bereits bestehenden Cluster zugeordnet. Dadurch wird sichtbar, wie ein unüberwachtes Lernverfahren und ein einfaches Zuordnungsverfahren kombiniert werden können.
+
+\subsubsection{Datenvorbereitung}
+
+Das k-Means-Verfahren kann nicht direkt mit textuellen Kategorien wie \textit{trocken}, \textit{feucht}, \textit{basisch} oder \textit{neutral} rechnen. Deshalb mussten die kategorialen Merkmale zunächst in numerische Werte umgewandelt werden. Für diese Aufgabe wurde folgende Kodierung verwendet:
+
+\begin{itemize}
+    \item Feuchte:
+    \begin{itemize}
+        \item trocken = 0
+        \item feucht = 1
+    \end{itemize}
+    \item Säure:
+    \begin{itemize}
+        \item basisch = 0
+        \item neutral = 1
+        \item alkalisch = 2
+    \end{itemize}
+\end{itemize}
+
+Das Merkmal Temperatur wurde unverändert übernommen, da es bereits numerisch vorliegt. Das Merkmal Wachstum wurde für das Clustering nicht verwendet, weil k-Means ein unüberwachtes Verfahren ist. Das bedeutet, dass die Gruppen allein anhand der Eingabemerkmale Feuchte, Säuregrad und Temperatur gebildet werden.
+
+\subsubsection{Kodierte Datenpunkte}
+
+Die ersten zehn Datenpunkte werden nach der Kodierung wie folgt dargestellt:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c|c|c|c|c}
+\hline
+Nr. & Feuchte & Säure & Temp. & Kodierter Vektor \\
+\hline
+1 & trocken & basisch & 7 & $(0,0,7)$ \\
+2 & feucht & neutral & 8 & $(1,1,8)$ \\
+3 & trocken & neutral & 7 & $(0,1,7)$ \\
+4 & feucht & alkalisch & 5 & $(1,2,5)$ \\
+5 & trocken & neutral & 8 & $(0,1,8)$ \\
+6 & trocken & neutral & 6 & $(0,1,6)$ \\
+7 & trocken & neutral & 11 & $(0,1,11)$ \\
+8 & trocken & neutral & 9 & $(0,1,9)$ \\
+9 & trocken & alkalisch & 9 & $(0,2,9)$ \\
+10 & trocken & alkalisch & 8 & $(0,2,8)$ \\
+\hline
+\end{tabular}
+\caption{Kodierte Darstellung der ersten zehn Datenpunkte}
+\end{table}
+
+\subsubsection{Durchführung des k-Means-Verfahrens}
+
+Für die Clusteranalyse wurde $k=2$ gewählt. Das bedeutet, dass die Datenpunkte in zwei Cluster aufgeteilt werden sollen. Die Aufgabe gibt außerdem vor, dass die Datenpunkte 1 und 8 als initiale Clusterzentren verwendet werden. Daraus ergeben sich zu Beginn folgende Zentren:
+
+\[
+C_1^{(0)} = DP_1 = (0,0,7)
+\]
+
+\[
+C_2^{(0)} = DP_8 = (0,1,9)
+\]
+
+Die Zuordnung der Datenpunkte erfolgt anhand der euklidischen Distanz. Für zwei Punkte
+
+\[
+x = (x_1,x_2,x_3)
+\]
+
+und
+
+\[
+y = (y_1,y_2,y_3)
+\]
+
+ergibt sich die Distanz durch:
+
+\[
+d(x,y) = \sqrt{(x_1-y_1)^2 + (x_2-y_2)^2 + (x_3-y_3)^2}
+\]
+
+Jeder Datenpunkt wird demjenigen Clusterzentrum zugeordnet, zu dem seine Distanz am kleinsten ist.
+
+\subsubsection{Erste Zuordnung der Datenpunkte}
+
+Nach der Berechnung der Distanzen zu den beiden initialen Clusterzentren ergibt sich folgende Zuordnung:
+
+\[
+Cluster\ 1 = \{1,3,4,6\}
+\]
+
+\[
+Cluster\ 2 = \{2,5,7,8,9,10\}
+\]
+
+Die erste Gruppe enthält also die Datenpunkte 1, 3, 4 und 6. Die zweite Gruppe enthält die Datenpunkte 2, 5, 7, 8, 9 und 10.
+
+\subsubsection{Berechnung der neuen Clusterzentren}
+
+Im nächsten Schritt werden die Clusterzentren neu berechnet. Dazu wird für jedes Cluster der Mittelwert der enthaltenen Datenpunkte gebildet.
+
+Für Cluster 1 gilt:
+
+\[
+DP_1 = (0,0,7)
+\]
+
+\[
+DP_3 = (0,1,7)
+\]
+
+\[
+DP_4 = (1,2,5)
+\]
+
+\[
+DP_6 = (0,1,6)
+\]
+
+Das neue Zentrum von Cluster 1 ergibt sich aus dem Mittelwert dieser vier Punkte:
+
+\[
+C_1 = 
+\left(
+\frac{0+0+1+0}{4},
+\frac{0+1+2+1}{4},
+\frac{7+7+5+6}{4}
+\right)
+\]
+
+\[
+C_1 = (0.25, 1.00, 6.25)
+\]
+
+Für Cluster 2 gilt:
+
+\[
+DP_2 = (1,1,8)
+\]
+
+\[
+DP_5 = (0,1,8)
+\]
+
+\[
+DP_7 = (0,1,11)
+\]
+
+\[
+DP_8 = (0,1,9)
+\]
+
+\[
+DP_9 = (0,2,9)
+\]
+
+\[
+DP_{10} = (0,2,8)
+\]
+
+Das neue Zentrum von Cluster 2 ergibt sich aus dem Mittelwert dieser sechs Punkte:
+
+\[
+C_2 =
+\left(
+\frac{1+0+0+0+0+0}{6},
+\frac{1+1+1+1+2+2}{6},
+\frac{8+8+11+9+9+8}{6}
+\right)
+\]
+
+\[
+C_2 = (0.17, 1.33, 8.83)
+\]
+
+\subsubsection{Konvergenz des Verfahrens}
+
+Nach der Neuberechnung der Clusterzentren wird die Zuordnung der Datenpunkte erneut überprüft. Dabei bleibt die Zuordnung unverändert:
+
+\[
+Cluster\ 1 = \{1,3,4,6\}
+\]
+
+\[
+Cluster\ 2 = \{2,5,7,8,9,10\}
+\]
+
+Da sich die Clusterzuordnung nicht mehr ändert, ist das k-Means-Verfahren konvergiert. Die finalen Clusterzentren lauten:
+
+\[
+C_1 = (0.25, 1.00, 6.25)
+\]
+
+\[
+C_2 = (0.17, 1.33, 8.83)
+\]
+
+\subsubsection{Interpretation der k-Means-Ergebnisse}
+
+Die Ergebnisse zeigen, dass Cluster 1 hauptsächlich Datenpunkte mit niedrigeren Temperaturwerten enthält. Die Temperaturwerte in Cluster 1 liegen bei 5, 6 und 7 Grad. Cluster 2 enthält dagegen überwiegend Datenpunkte mit höheren Temperaturwerten zwischen 8 und 11 Grad.
+
+Damit scheint die Temperatur in dieser konkreten Kodierung einen besonders starken Einfluss auf die Clusterbildung zu haben. Das liegt daran, dass die Temperaturwerte numerisch einen größeren Wertebereich besitzen als die kodierten Kategorien für Feuchte und Säuregrad. Ohne Normalisierung können solche Merkmale das Ergebnis des k-Means-Verfahrens dominieren.
+
+\subsubsection{Zuordnung der Datenpunkte 11 und 16 mit k-Nächste-Nachbarn}
+
+In Teilaufgabe 3b sollen die Datenpunkte 11 und 16 den zuvor gebildeten Clustern zugeordnet werden. Dazu werden die beiden Datenpunkte zunächst ebenfalls numerisch kodiert.
+
+Datenpunkt 11 lautet in der Tabelle:
+
+\[
+DP_{11} = \text{feucht, basisch, 7}
+\]
+
+Mit der oben definierten Kodierung ergibt sich:
+
+\[
+DP_{11} = (1,0,7)
+\]
+
+Datenpunkt 16 lautet:
+
+\[
+DP_{16} = \text{trocken, basisch, 4}
+\]
+
+Damit ergibt sich:
+
+\[
+DP_{16} = (0,0,4)
+\]
+
+Für die Zuordnung werden die Distanzen der neuen Datenpunkte zu den finalen Clusterzentren berechnet.
+
+Für Datenpunkt 11 gilt:
+
+\[
+d(DP_{11}, C_1)
+=
+\sqrt{(1-0.25)^2 + (0-1.00)^2 + (7-6.25)^2}
+\]
+
+\[
+d(DP_{11}, C_1)
+=
+\sqrt{0.75^2 + (-1.00)^2 + 0.75^2}
+\]
+
+\[
+d(DP_{11}, C_1)
+=
+\sqrt{0.5625 + 1 + 0.5625}
+=
+\sqrt{2.125}
+\approx 1.46
+\]
+
+Die Distanz zu Clusterzentrum 2 beträgt:
+
+\[
+d(DP_{11}, C_2)
+=
+\sqrt{(1-0.17)^2 + (0-1.33)^2 + (7-8.83)^2}
+\]
+
+\[
+d(DP_{11}, C_2)
+\approx 2.42
+\]
+
+Da
+
+\[
+1.46 < 2.42
+\]
+
+gilt, wird Datenpunkt 11 dem ersten Cluster zugeordnet:
+
+\[
+DP_{11} \rightarrow Cluster\ 1
+\]
+
+Für Datenpunkt 16 gilt:
+
+\[
+d(DP_{16}, C_1)
+=
+\sqrt{(0-0.25)^2 + (0-1.00)^2 + (4-6.25)^2}
+\]
+
+\[
+d(DP_{16}, C_1)
+=
+\sqrt{(-0.25)^2 + (-1.00)^2 + (-2.25)^2}
+\]
+
+\[
+d(DP_{16}, C_1)
+=
+\sqrt{0.0625 + 1 + 5.0625}
+=
+\sqrt{6.125}
+\approx 2.47
+\]
+
+Die Distanz zu Clusterzentrum 2 beträgt:
+
+\[
+d(DP_{16}, C_2)
+=
+\sqrt{(0-0.17)^2 + (0-1.33)^2 + (4-8.83)^2}
+\]
+
+\[
+d(DP_{16}, C_2)
+\approx 5.02
+\]
+
+Da
+
+\[
+2.47 < 5.02
+\]
+
+gilt, wird auch Datenpunkt 16 dem ersten Cluster zugeordnet:
+
+\[
+DP_{16} \rightarrow Cluster\ 1
+\]
+
+\subsubsection{Endergebnis}
+
+Die finale Clusterstruktur für die ersten zehn Datenpunkte lautet:
+
+\[
+Cluster\ 1 = \{1,3,4,6\}
+\]
+
+\[
+Cluster\ 2 = \{2,5,7,8,9,10\}
+\]
+
+Die neuen Datenpunkte werden wie folgt zugeordnet:
+
+\[
+DP_{11} \rightarrow Cluster\ 1
+\]
+
+\[
+DP_{16} \rightarrow Cluster\ 1
+\]
+
+\subsubsection{Kritische Reflexion}
+
+Die Aufgabe zeigt, dass die Anwendung von k-Means stark von der Datenvorbereitung abhängt. Da mehrere Merkmale kategorial vorliegen, mussten sie zunächst numerisch kodiert werden. Diese Kodierung ist jedoch nicht vollständig neutral. Wenn beispielsweise basisch = 0, neutral = 1 und alkalisch = 2 gesetzt wird, entsteht eine künstliche Ordnung zwischen den Kategorien. Diese Ordnung muss fachlich nicht zwingend sinnvoll sein.
+
+Ein weiterer wichtiger Punkt ist die Skalierung der Merkmale. Die Temperatur besitzt in dieser Aufgabe einen größeren Wertebereich als die kodierten Kategorien für Feuchte und Säuregrad. Dadurch beeinflusst sie die euklidische Distanz stärker als die anderen Merkmale. Dies erklärt, warum die resultierenden Cluster vor allem nach niedrigeren und höheren Temperaturwerten getrennt werden.
+
+Für eine professionellere Analyse wäre es sinnvoll, die Daten vor dem Clustering zu normalisieren. Alternativ könnten Verfahren verwendet werden, die besser für kategoriale Merkmale geeignet sind, zum Beispiel k-Modes oder hierarchisches Clustering mit einem passenden Distanzmaß. Dadurch könnte überprüft werden, ob die Clusterstruktur stabil bleibt oder ob sie hauptsächlich durch die gewählte Kodierung entstanden ist.
+
+Interessant ist außerdem, dass das Zielmerkmal Wachstum nicht direkt in die Clusterbildung einbezogen wurde. Dadurch kann nachträglich analysiert werden, ob die gefundenen Cluster mit gutem oder schlechtem Wachstum zusammenhängen. In den gegebenen Daten ist dieser Zusammenhang nicht vollständig eindeutig. Das verdeutlicht eine wichtige Grenze des unüberwachten Lernens: Ein mathematisch gebildeter Cluster muss anschließend fachlich interpretiert werden.
+
+\subsubsection{Eigene Lernreflexion}
+
+Durch diese Aufgabe wurde deutlich, dass k-Means nicht nur aus einer einfachen Rechenvorschrift besteht, sondern mehrere methodische Entscheidungen voraussetzt. Besonders wichtig sind die Auswahl der Merkmale, die Kodierung kategorialer Daten, die Wahl der initialen Clusterzentren und die verwendete Distanzfunktion. Kleine Änderungen in diesen Entscheidungen können zu anderen Ergebnissen führen.
+
+Für mein ePortfolio ist diese Aufgabe deshalb besonders relevant, weil sie zeigt, wie ein theoretisches Verfahren praktisch auf eine kleine Datenmenge angewendet werden kann. Gleichzeitig werden typische Grenzen des Verfahrens sichtbar. Ich habe gelernt, dass ein gutes Ergebnis im Data Mining nicht nur aus der Anwendung eines Algorithmus entsteht, sondern aus einer reflektierten Kombination von Datenverständnis, Vorverarbeitung, Berechnung und kritischer Interpretation.
 \subsection{Machine Learning: Lernen aus Beispielen}
 
 
@@ -603,20 +987,6 @@ Für mein ePortfolio ist dieses Experiment deshalb wichtig, weil es den Übergan
 
 \subsection{Vergleich der vier Themen}
 
-\begin{table}[h]
-\centering
-\begin{tabular}{p{3cm}p{4cm}p{4cm}p{3cm}}
-\toprule
-\textbf{Thema} & \textbf{Ziel} & \textbf{Typisches Experiment} & \textbf{Reflexionsfrage} \\
-\midrule
-Data Mining & Muster in Daten entdecken & Datenanalyse und Visualisierung & Was sagen die Daten ueber das Problem? \\
-Machine Learning & Aus Daten Vorhersagen lernen & Klassifikation mit Entscheidungsbaum oder kNN & Generalisiert das Modell auf neue Daten? \\
-Deep Learning & Komplexe Muster mit neuronalen Netzen lernen & MLP oder Bildklassifikation & Ist ein komplexes Modell wirklich notwendig? \\
-Erklaerbare KI & Entscheidungen nachvollziehbar machen & Entscheidungsbaum visualisieren oder SHAP/LIME testen & Kann ein Mensch die Entscheidung verstehen? \\
-\bottomrule
-\end{tabular}
-\caption{Vergleich von Data Mining, Machine Learning, Deep Learning und erklaerbarer KI}
-\end{table}
 
 
 \begin{thebibliography}{99}
