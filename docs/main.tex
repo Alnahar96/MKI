@@ -1,5 +1,6 @@
 \documentclass[12pt,a4paper]{article}
 
+\usepackage{float}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
@@ -10,6 +11,7 @@
 \usepackage{fancyhdr}
 \usepackage{titlesec}
 \usepackage{graphicx}
+\usepackage{textcomp}
 \geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
 
 \pagestyle{fancy}
@@ -70,7 +72,7 @@ Ich habe die Webseite \textit{theresanaiforthat.com} besucht und den Bereich
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.9\textwidth]{ai_tools_trending.png}
+    \includegraphics[width=0.9\textwidth]{figures/ai_tools_trending.png}
     \caption{Trending KI-Tools auf theresanaiforthat.com}
 \end{figure}
 
@@ -589,7 +591,7 @@ Zur Visualisierung möglicher Muster wurden die Merkmale \textit{petal length} u
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.85\textwidth]{iris_scatterplot.png}
+\includegraphics[width=0.85\textwidth]{figures/iris_scatterplot.png}
 \caption{Streudiagramm der Merkmale \textit{petal length} und \textit{petal width} im Iris-Datensatz. Die Visualisierung zeigt, dass sich die Iris-Art \textit{setosa} deutlich von den anderen beiden Arten abgrenzt.}
 \label{fig:iris-scatterplot}
 \end{figure}
@@ -977,6 +979,55 @@ Durch diese Aufgabe wurde deutlich, dass k-Means nicht nur aus einer einfachen R
 Für mein ePortfolio ist diese Aufgabe deshalb besonders relevant, weil sie zeigt, wie ein theoretisches Verfahren praktisch auf eine kleine Datenmenge angewendet werden kann. Gleichzeitig werden typische Grenzen des Verfahrens sichtbar. Ich habe gelernt, dass ein gutes Ergebnis im Data Mining nicht nur aus der Anwendung eines Algorithmus entsteht, sondern aus einer reflektierten Kombination von Datenverständnis, Vorverarbeitung, Berechnung und kritischer Interpretation.
 \subsection{Machine Learning: Lernen aus Beispielen}
 
+\subsubsection*{Begriffsklärung}
+
+Machine Learning bezeichnet Verfahren, bei denen ein System aus Beispieldaten lernt, um anschließend Vorhersagen oder Klassifikationen für neue, zuvor nicht gesehene Datenpunkte zu treffen. Im Unterschied zum Data Mining steht hier nicht nur das Entdecken von Mustern im Vordergrund, sondern das Trainieren eines Modells, das diese Muster auf neue Fälle anwenden kann.
+
+Im Rahmen dieses ePortfolios wird Machine Learning als nächster Schritt nach der explorativen Datenanalyse betrachtet. Während im Data-Mining-Teil erste Strukturen im Iris-Datensatz sichtbar wurden, soll nun überprüft werden, ob ein Klassifikator diese Strukturen nutzen kann, um die Iris-Art automatisch vorherzusagen.
+
+\subsubsection*{Ziel des Experiments}
+
+Ziel dieses Experiments ist es, mithilfe eines Decision-Tree-Modells die Iris-Art anhand der numerischen Merkmale \texttt{SepalLengthCm}, \texttt{SepalWidthCm}, \texttt{PetalLengthCm} und \texttt{PetalWidthCm} vorherzusagen. Die Zielvariable ist die Spalte \texttt{Species}, die die drei Klassen \texttt{Iris-setosa}, \texttt{Iris-versicolor} und \texttt{Iris-virginica} enthält.
+
+Für die Umsetzung wurde KNIME verwendet, da der visuelle Workflow die einzelnen Schritte eines Machine-Learning-Prozesses nachvollziehbar macht: Datenimport, Aufteilung der Daten, Training des Modells, Vorhersage, Aggregation der Ergebnisse und Bewertung der Modellleistung.
+
+\subsubsection*{Umsetzung des KNIME-Workflows}
+
+Der Iris-Datensatz wurde zunächst mit dem \texttt{CSV Reader} in KNIME importiert. Anschließend wurde der \texttt{X-Partitioner} verwendet, um eine 10-fache Kreuzvalidierung durchzuführen. Als Klassenvariable wurde \texttt{Species} ausgewählt. Durch die Einstellung \textit{Stratified sampling} wird sichergestellt, dass die drei Iris-Arten in den jeweiligen Trainings- und Testteilen möglichst gleichmäßig vertreten sind.
+
+Das Modell wurde mit dem \texttt{Decision Tree Learner} trainiert. Danach wurden die Testdaten jedes Validierungsdurchlaufs mit dem \texttt{Decision Tree Predictor} klassifiziert. Die Vorhersagen aller Durchläufe wurden anschließend mit dem \texttt{X-Aggregator} zusammengeführt und mit dem \texttt{Scorer} ausgewertet.
+
+
+\begin{figure}[H]
+    \centering
+\includegraphics[width=0.95\textwidth]{figures/ml_knime_decision_tree_workflow.png}
+    \caption{KNIME-Workflow zur Klassifikation des Iris-Datensatzes mit einem Decision Tree und 10-facher Kreuzvalidierung.}
+    \label{fig:knime-decision-tree-workflow}
+\end{figure}
+
+
+\subsubsection*{Auswertung der Modellleistung}
+
+Nach der Durchführung der 10-fachen Kreuzvalidierung wurden die Vorhersagen aller Validierungsdurchläufe mit dem \texttt{X-Aggregator} zusammengeführt und anschließend mit dem \texttt{Scorer} ausgewertet. Als tatsächliche Zielvariable wurde die Spalte \texttt{Species} verwendet, während die Spalte \texttt{Prediction (Species)} die vom Modell vorhergesagte Klasse enthält.
+
+\begin{figure}[H]
+    \centering
+   \includegraphics[width=0.95\textwidth]{figures/ml_knime_decision_tree_accuracy.png}
+    \caption{Auswertung des Decision-Tree-Modells mit dem KNIME Scorer. Die Gesamtgenauigkeit beträgt 99{,}3\%.}
+    \label{fig:knime-decision-tree-accuracy}
+\end{figure}
+
+Das Decision-Tree-Modell erreichte eine Gesamtgenauigkeit von \texttt{0{,}993}, was einer Accuracy von \texttt{99{,}3\%} entspricht. Damit wurden nahezu alle Instanzen des Iris-Datensatzes korrekt klassifiziert. Besonders auffällig ist, dass die Klasse \texttt{Iris-setosa} vollständig korrekt erkannt wurde. Dies lässt sich dadurch erklären, dass diese Klasse anhand der Blütenmerkmale deutlich von den anderen beiden Klassen getrennt ist.
+
+Die wenigen Abweichungen treten typischerweise zwischen \texttt{Iris-versicolor} und \texttt{Iris-virginica} auf. Diese Beobachtung ist fachlich plausibel, da sich diese beiden Iris-Arten in ihren Merkmalsausprägungen stärker überlappen als \texttt{Iris-setosa}. Die hohe Modellleistung zeigt, dass ein Entscheidungsbaum für diesen Datensatz gut geeignet ist, da die Klassen anhand weniger Merkmale relativ klar voneinander getrennt werden können.
+
+\subsubsection*{Reflexion}
+
+Die hohe Accuracy zeigt, dass der Iris-Datensatz für ein erstes Klassifikationsexperiment sehr gut geeignet ist. Gleichzeitig darf das Ergebnis nicht überinterpretiert werden, da der Datensatz klein, sauber und stark strukturiert ist. In realen Anwendungsszenarien treten häufig fehlende Werte, unausgewogene Klassen, Rauschen oder komplexere Merkmalsbeziehungen auf. Deshalb wäre ein einzelnes hohes Accuracy-Ergebnis allein nicht ausreichend, um ein Modell als zuverlässig zu bewerten.
+
+Besonders wichtig war in diesem Experiment die Verwendung der Kreuzvalidierung. Im Vergleich zu einer einfachen einmaligen Trainings-Test-Aufteilung liefert die 10-fache Kreuzvalidierung eine stabilere Einschätzung der Modellleistung, da jede Instanz einmal als Testinstanz verwendet wird. Dadurch wird das Risiko reduziert, dass das Ergebnis zufällig durch eine besonders günstige oder ungünstige Datenaufteilung entsteht.
+
+Für mein Verständnis war außerdem wichtig zu sehen, dass ein Machine-Learning-Workflow nicht nur aus dem Training eines Modells besteht. Vor dem eigentlichen Lernen müssen die Daten korrekt importiert, die Zielvariable ausgewählt, die Daten aufgeteilt, Vorhersagen erzeugt und die Ergebnisse kritisch interpretiert werden. Der praktische KNIME-Workflow macht diese Schritte visuell nachvollziehbar.
 
 \subsection{Deep Learning: Lernen mit neuronalen Netzen}
 
