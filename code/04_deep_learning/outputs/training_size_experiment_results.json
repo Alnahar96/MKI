@@ -1,0 +1,67 @@
+[
+  {
+    "training_fraction": 0.2,
+    "training_percentage": 20,
+    "number_of_training_samples": 4000,
+    "final_training_accuracy": 0.9610000252723694,
+    "final_validation_accuracy": 0.8501999974250793,
+    "best_validation_accuracy": 0.8501999974250793,
+    "best_epoch": 10,
+    "validation_loss": 0.35100746154785156,
+    "test_accuracy": 0.8434399962425232,
+    "test_loss": 0.35527774691581726,
+    "training_duration_seconds": 14.137194899842143
+  },
+  {
+    "training_fraction": 0.4,
+    "training_percentage": 40,
+    "number_of_training_samples": 8000,
+    "final_training_accuracy": 0.9777500033378601,
+    "final_validation_accuracy": 0.8561999797821045,
+    "best_validation_accuracy": 0.8579999804496765,
+    "best_epoch": 7,
+    "validation_loss": 0.37034010887145996,
+    "test_accuracy": 0.851639986038208,
+    "test_loss": 0.3707813322544098,
+    "training_duration_seconds": 21.409844200126827
+  },
+  {
+    "training_fraction": 0.6,
+    "training_percentage": 60,
+    "number_of_training_samples": 12000,
+    "final_training_accuracy": 0.9786666631698608,
+    "final_validation_accuracy": 0.8560000061988831,
+    "best_validation_accuracy": 0.8641999959945679,
+    "best_epoch": 7,
+    "validation_loss": 0.41485655307769775,
+    "test_accuracy": 0.8523600101470947,
+    "test_loss": 0.4037489891052246,
+    "training_duration_seconds": 22.667631899937987
+  },
+  {
+    "training_fraction": 0.8,
+    "training_percentage": 80,
+    "number_of_training_samples": 16000,
+    "final_training_accuracy": 0.9797499775886536,
+    "final_validation_accuracy": 0.857200026512146,
+    "best_validation_accuracy": 0.8727999925613403,
+    "best_epoch": 5,
+    "validation_loss": 0.42086920142173767,
+    "test_accuracy": 0.847000002861023,
+    "test_loss": 0.43918225169181824,
+    "training_duration_seconds": 26.86970130028203
+  },
+  {
+    "training_fraction": 1.0,
+    "training_percentage": 100,
+    "number_of_training_samples": 20000,
+    "final_training_accuracy": 0.9751999974250793,
+    "final_validation_accuracy": 0.8650000095367432,
+    "best_validation_accuracy": 0.8755999803543091,
+    "best_epoch": 5,
+    "validation_loss": 0.42191559076309204,
+    "test_accuracy": 0.8507999777793884,
+    "test_loss": 0.4417441487312317,
+    "training_duration_seconds": 32.37049049977213
+  }
+]

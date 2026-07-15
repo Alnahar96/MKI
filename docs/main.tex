@@ -1,5 +1,5 @@
 \documentclass[12pt,a4paper]{article}
-
+\usepackage{subcaption}
 \usepackage{float}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -53,7 +53,31 @@ Abgabe: & 19.07.2026 \\
 Dieses ePortfolio dokumentiert meine Bearbeitung der Aufgaben aus der Vorlesung
 \textit{Methoden der KI}. Ziel ist es, die Inhalte nicht nur zusammenzufassen,
 sondern auch eigene Experimente, Beobachtungen und Reflexionen zu dokumentieren.
+\subsection*{Meine persönlichen Anforderungen an das ePortfolio}
 
+Für mein ePortfolio habe ich folgende persönliche Anforderungen
+festgelegt:
+
+\begin{itemize}
+    \item Die behandelten KI-Methoden sollen nicht nur theoretisch
+    beschrieben, sondern durch eigene praktische Versuche
+    nachvollziehbar gemacht werden.
+
+    \item Code, Workflows, Ergebnisse und Screenshots sollen so
+    dokumentiert sein, dass die einzelnen Arbeitsschritte
+    reproduzierbar bleiben.
+
+    \item Erwartete und tatsächlich beobachtete Ergebnisse sollen
+    miteinander verglichen und kritisch reflektiert werden.
+
+    \item Zwischen Data Mining, Machine Learning, Deep Learning und
+    erklärbarer KI soll ein nachvollziehbarer fachlicher
+    Zusammenhang hergestellt werden.
+
+    \item Das Portfolio soll auch nach Abschluss des Moduls als
+    persönliches Nachschlagewerk und als Grundlage für weitere
+    KI- und Informationssystemprojekte nutzbar sein.
+\end{itemize}
 \newpage
 
 \section{Blatt 1: Einfuehrung in KI}
@@ -320,8 +344,8 @@ uebernahmebereit bleiben. \cite{mercedes_drive_pilot}
 \begin{itemize}
     \item \textbf{USA:} Robotaxi-Dienste, besonders durch Waymo.
     \item \textbf{Deutschland:} Level-3-Systeme wie Mercedes-Benz DRIVE PILOT.
-    \item \textbf{China:} Robotaxi-Projekte, zum Beispiel Baidu Apollo Go. Gleichzeitig zeigen aktuelle Berichte, dass Behoerden wegen Sicherheits- und Kontrollfragen strenger werden. \cite{china_av}
-    \item \textbf{Singapur:} Tests und Vorbereitung autonomer Shuttle-Dienste, aber weiterhin Herausforderungen bei Haftung und Regulierung. \cite{singapore_av}
+    \item \textbf{China:} Robotaxi-Projekte, zum Beispiel Baidu Apollo Go. \cite{china_av}.  
+   \item \textbf{Singapur:} Tests und Vorbereitung autonomer Shuttle-Dienste, aber weiterhin Herausforderungen bei Haftung und Regulierung. \cite{singapore_av}
 \end{itemize}
 
 \subsubsection*{Schwierigkeiten}
@@ -487,35 +511,58 @@ Für mein ePortfolio ordne ich die Themen bewusst nicht zufällig, sondern entla
 \begin{enumerate}
 \item \textbf{Data Mining:} Am Anfang steht die systematische Untersuchung von Daten. Dabei werden Muster, Strukturen, Zusammenhänge und Auffälligkeiten erkannt. Data Mining bildet damit die Grundlage, um aus Rohdaten verwertbare Informationen zu gewinnen.
 
-```
+
 \item \textbf{Machine Learning:} Aufbauend auf den erkannten Datenstrukturen werden Modelle trainiert, die aus Beispielen lernen und Vorhersagen oder Klassifikationen treffen können. Machine Learning zeigt, wie aus Daten lernfähige Systeme entstehen.
 
 \item \textbf{Deep Learning:} Anschließend werden komplexere Modellarchitekturen betrachtet, insbesondere neuronale Netze. Deep Learning ist besonders relevant für große Datenmengen und komplexe Anwendungsfelder wie Bildverarbeitung, Sprachverarbeitung und moderne Large Language Models.
 
 \item \textbf{Erklärbare KI / XAI:} Abschließend wird untersucht, wie KI-Entscheidungen nachvollziehbar, interpretierbar und kritisch bewertbar gemacht werden können. Dies ist wichtig, weil leistungsfähige Modelle nicht nur gute Ergebnisse liefern sollen, sondern auch transparent, vertrauenswürdig und verantwortungsvoll eingesetzt werden müssen.
-```
 
 \end{enumerate}
 
 Diese Reihenfolge ist wichtig, weil moderne KI nicht nur aus einem einzelnen Algorithmus besteht. Ein vollständiges KI-System benötigt Daten, Vorverarbeitung, Modellbildung, Training, Evaluation und Erklärbarkeit. Dadurch kann ich im Portfolio nicht nur theoretische Grundlagen darstellen, sondern auch einen praktischen und reflektierten KI-Prozess .
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
-\begin{tabular}{p{3cm}p{4cm}p{4cm}p{3cm}}
+\begin{tabular}{p{2.7cm}p{3.7cm}p{4.3cm}p{3.3cm}}
 \toprule
-\textbf{Thema} & \textbf{Ziel} & \textbf{Typisches Experiment} & \textbf{Reflexionsfrage} \\
+\textbf{Thema} &
+\textbf{Ziel} &
+\textbf{Praktische Umsetzung} &
+\textbf{Reflexionsfrage} \\
 \midrule
-Data Mining & Muster in Daten entdecken & Datenanalyse und Visualisierung & Was sagen die Daten ueber das Problem? \\
-Machine Learning & Aus Daten Vorhersagen lernen & Klassifikation mit Entscheidungsbaum oder kNN & Generalisiert das Modell auf neue Daten? \\
-Deep Learning & Komplexe Muster mit neuronalen Netzen lernen & MLP oder Bildklassifikation & Ist ein komplexes Modell wirklich notwendig? \\
-Erklaerbare KI & Entscheidungen nachvollziehbar machen & Entscheidungsbaum visualisieren oder SHAP/LIME testen & Kann ein Mensch die Entscheidung verstehen? \\
+
+Data Mining &
+Muster und Strukturen in Daten erkennen &
+Explorative Analyse und Visualisierung des Iris-Datensatzes &
+Welche Informationen lassen sich bereits vor dem Modelltraining
+erkennen? \\
+
+Machine Learning &
+Aus Beispieldaten Vorhersagen lernen &
+Decision-Tree-Klassifikation mit KNIME und Kreuzvalidierung &
+Generalisiert das Modell auf neue Daten? \\
+
+Deep Learning &
+Textrepräsentationen mit neuronalen Netzen lernen &
+Sentimentanalyse mit TF--IDF-Baseline und Embedding-Modell &
+Ist das komplexere neuronale Modell tatsächlich besser? \\
+
+Erklärbare KI &
+Modellentscheidungen nachvollziehbar machen &
+Decision-Tree-Visualisierung, Feature Importance und lokaler
+Entscheidungspfad &
+Welche Merkmale und Regeln führen zu einer Vorhersage? \\
+
 \bottomrule
 \end{tabular}
-\caption{Vergleich von Data Mining, Machine Learning, Deep Learning und erklaerbarer KI}
-\end{table}.
+\caption{Vergleich der vier praktischen Vertiefungsthemen}
+\label{tab:themenvergleich}
+\end{table}
 \subsection{Mein methodisches Vorgehen im Portfolio}
 
-Fuer jedes Thema verwende ich dieselbe wissenschaftliche Struktur:
+Für die praktischen Vertiefungsthemen orientiere ich mich an einer
+wiederkehrenden wissenschaftlichen Struktur:
 
 \begin{enumerate}
     \item \textbf{Begriffsklaerung}: Was bedeutet der Begriff?
@@ -1029,16 +1076,883 @@ Besonders wichtig war in diesem Experiment die Verwendung der Kreuzvalidierung. 
 
 Für mein Verständnis war außerdem wichtig zu sehen, dass ein Machine-Learning-Workflow nicht nur aus dem Training eines Modells besteht. Vor dem eigentlichen Lernen müssen die Daten korrekt importiert, die Zielvariable ausgewählt, die Daten aufgeteilt, Vorhersagen erzeugt und die Ergebnisse kritisch interpretiert werden. Der praktische KNIME-Workflow macht diese Schritte visuell nachvollziehbar.
 
-\subsection{Deep Learning: Lernen mit neuronalen Netzen}
+\section{Deep Learning: Lernen mit neuronalen Netzen}
+
+\subsection*{Begriffsklärung}
+
+Deep Learning bezeichnet einen Teilbereich des Machine Learning, bei dem künstliche neuronale Netze mit mehreren Schichten verwendet werden. Diese Netze lernen Zusammenhänge zwischen Eingabedaten und Zielwerten, indem sie interne Gewichte während des Trainings schrittweise anpassen.
+
+Im Unterschied zu einfachen Machine-Learning-Verfahren wie Entscheidungsbäumen können Deep-Learning-Modelle komplexere nichtlineare Zusammenhänge abbilden. Gleichzeitig sind sie jedoch häufig schwerer interpretierbar und benötigen in vielen Fällen mehr Daten und Rechenleistung.
 
 
-\subsection{Erklaerbare KI: Warum entscheidet ein Modell so?}
+
+\subsection{Motivation und Zielsetzung}
+
+Deep Learning bezeichnet Verfahren des maschinellen Lernens, bei denen neuronale Netze mit mehreren Verarbeitungsschichten eingesetzt werden. Eine zentrale Idee besteht darin, geeignete Merkmalsrepräsentationen nicht vollständig manuell vorzugeben, sondern sie datengetrieben während des Trainings zu lernen. Besonders relevant ist dies für unstrukturierte Daten wie Texte, Bilder und Audiosignale. 
+
+Für die praktische Vertiefung wurde eine binäre Sentimentanalyse mit dem IMDB-Datensatz umgesetzt. Das System soll Filmrezensionen automatisch den Klassen \emph{positiv} oder \emph{negativ} zuordnen. Dabei wurden zwei methodisch unterschiedliche Ansätze entwickelt und verglichen:
+
+\begin{enumerate}
+    \item ein klassisches TF--IDF-Modell mit logistischer Regression als Baseline,
+    \item ein neuronales Modell mit trainierbarer Embedding-Schicht.
+\end{enumerate}
+
+Zusätzlich wurden zwei eigene Experimente durchgeführt. Im ersten Experiment wurde der Einfluss der Embedding-Dimension untersucht. Im zweiten Experiment wurde analysiert, wie sich die Größe des Trainingsdatensatzes auf Genauigkeit, Generalisierung und Trainingsdauer auswirkt.
+
+\subsection{Projektstruktur und reproduzierbare Umsetzung}
+
+Die Implementierung befindet sich im Verzeichnis
+\texttt{code/04\_deep\_learning}. Die einzelnen Skripte übernehmen klar getrennte Aufgaben:
+
+\begin{table}[H]
+\centering
+\caption{Aufgaben der implementierten Python-Skripte}
+\label{tab:dl-scripts}
+\begin{tabular}{p{0.34\textwidth}p{0.58\textwidth}}
+\toprule
+\textbf{Skript} & \textbf{Aufgabe} \\
+\midrule
+\texttt{config.py} &
+Zentrale Konfiguration von Zufallsstartwert, Wortschatzgröße, Sequenzlänge, Embedding-Dimension, Batch-Größe, Epochenzahl und Dropout-Rate. \\
+
+\texttt{data\_utils.py} &
+Laden des IMDB-Datensatzes, Kontrolle der Klassenverteilung und Decodierung beispielhafter Rezensionen. \\
+
+\texttt{prepare\_sequences.py} &
+Analyse der Sequenzlängen, Padding und Truncation sowie Speicherung der vorbereiteten Sequenzen. \\
+
+\texttt{train\_tfidf\_baseline.py} &
+Erzeugung einer TF--IDF-Repräsentation und Training einer logistischen Regression. \\
+
+\texttt{train\_embedding\_model.py} &
+Aufbau, Training und Evaluation des neuronalen Embedding-Modells. \\
+
+\texttt{compare\_models.py} &
+Vergleich beider Modelle anhand von Accuracy, Precision, Recall, F1-Score und Trainingsdauer. \\
+
+\texttt{experiment\_embedding\_dimensions.py} &
+Systematischer Vergleich der Embedding-Dimensionen 8, 16, 32 und 64. \\
+
+\texttt{experiment\_training\_sizes.py} &
+Untersuchung verschiedener Trainingsdatenanteile von 20\,\% bis 100\,\%. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Die Trennung in mehrere Skripte verbessert Nachvollziehbarkeit und Wiederverwendbarkeit. Jeder Versuch kann unabhängig ausgeführt werden, während gemeinsame Einstellungen aus \texttt{config.py} übernommen werden.
+
+\subsection{Datensatz und Problemformulierung}
+
+Der IMDB-Datensatz besteht aus 50\,000 englischsprachigen Filmrezensionen und wurde als Benchmark für die automatische Sentimentklassifikation veröffentlicht.\cite{maas_imdb}. Davon werden 25\,000 Rezensionen für das Training und 25\,000 für den abschließenden Test verwendet. Beide Teilmengen sind balanciert: Je 12\,500 Rezensionen sind positiv und 12\,500 negativ klassifiziert.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.96\textwidth]{figures/dataset_overview_terminal.png}
+    \caption{Ausgabe von \texttt{data\_utils.py}: Datensatzgröße, Klassenverteilung und decodierte Beispielrezensionen}
+    \label{fig:dataset-overview-terminal}
+\end{figure}
+
+Die gleichmäßige Klassenverteilung ist für die Interpretation der Accuracy wichtig. Bei unausgeglichenen Klassen könnte eine hohe Accuracy durch die bevorzugte Vorhersage der Mehrheitsklasse entstehen. Im vorliegenden Datensatz entspricht eine zufällige Klassifikation ungefähr einer Accuracy von 50\,\%.
+
+\subsection{Textrepräsentation und Datenvorbereitung}
+
+\subsubsection{Tokenisierung}
+
+Neuronale Netze können Text nicht direkt verarbeiten. Jede Rezension wird deshalb als Folge ganzzahliger Token-IDs repräsentiert. Eine Token-ID verweist auf einen Eintrag im begrenzten Wortschatz. Sehr seltene Wörter außerhalb des gewählten Wortschatzes werden durch ein spezielles \emph{Unknown}-Token ersetzt.
+
+\subsubsection{Analyse der Sequenzlängen}
+
+Die Rezensionen besitzen stark unterschiedliche Längen. Die Trainingsrezensionen enthalten im Durchschnitt 238{,}71 Token, der Median liegt bei 178 Token. Die maximale beobachtete Länge beträgt 2494 Token. Bei den Testdaten liegt der Mittelwert bei 230{,}80 Token.
+
+\begin{table}[H]
+\centering
+\caption{Statistische Kennwerte der Sequenzlängen}
+\label{tab:sequence-statistics}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Kennwert} & \textbf{Training} & \textbf{Test} \\
+\midrule
+Minimum & 11 & 7 \\
+Maximum & 2494 & 2315 \\
+Mittelwert & 238{,}71 & 230{,}80 \\
+Median & 178 & 174 \\
+90.\ Perzentil & 467 & 446{,}10 \\
+95.\ Perzentil & 610 & 586 \\
+Anteil gekürzter Sequenzen & 31{,}31\,\% & 29{,}43\,\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\textwidth]{figures/sequence_length_distribution.png}
+    \caption{Verteilung der Rezensionlängen und gewählte Maximallänge von 250 Token}
+    \label{fig:sequence-length-distribution}
+\end{figure}
+
+Die Verteilung ist rechtsschief: Viele Rezensionen sind relativ kurz, während wenige Texte sehr lang sind. Die maximale Sequenzlänge wurde auf 250 Token festgelegt. Dadurch wird der Rechenaufwand reduziert, allerdings werden 31{,}31\,\% der Trainingsrezensionen und 29{,}43\,\% der Testrezensionen gekürzt. Diese Wahl stellt somit einen bewussten Kompromiss zwischen Informationsgehalt und Rechenaufwand dar.
+
+\subsubsection{Padding und Truncation}
+
+Für Batch-Verarbeitung müssen alle Eingaben dieselbe Länge besitzen. Kürzere Sequenzen werden am Ende mit dem Padding-Wert 0 ergänzt. Längere Sequenzen werden nach 250 Token abgeschnitten. Nach dieser Verarbeitung besitzen die Eingabematrizen die Formen
+\[
+X_{\mathrm{train}} \in \mathbb{N}^{25000 \times 250}
+\quad\text{und}\quad
+X_{\mathrm{test}} \in \mathbb{N}^{25000 \times 250}.
+\]
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.96\textwidth]{figures/training_test_data_terminal.png}
+    \caption{Konsolenausgabe der statistischen Längenanalyse}
+    \label{fig:training-test-terminal}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.96\textwidth]{figures/prepared_sequences_terminal.png}
+    \caption{Erfolgreiches Padding und Speicherung der vorbereiteten Sequenzen}
+    \label{fig:prepared-sequences-terminal}
+\end{figure}
+
+\subsection{Zentrale Hyperparameter}
+
+\begin{table}[H]
+\centering
+\caption{Bedeutung der zentralen Hyperparameter}
+\label{tab:dl-hyperparameters}
+\begin{tabular}{p{0.27\textwidth}p{0.64\textwidth}}
+\toprule
+\textbf{Parameter} & \textbf{Bedeutung} \\
+\midrule
+\texttt{RANDOM\_SEED} &
+Steuert zufällige Prozesse wie Initialisierung und Datenaufteilung. Ein fester Wert verbessert die Reproduzierbarkeit. \\
+
+\texttt{VOCAB\_SIZE} &
+Begrenzt die Zahl der berücksichtigten Wörter. Ein größerer Wortschatz erhält mehr sprachliche Details, erhöht aber Speicherbedarf und Parameterzahl. \\
+
+\texttt{MAX\_SEQUENCE\_LENGTH} &
+Legt die einheitliche Textlänge fest. Größere Werte erhalten mehr Kontext, verlängern jedoch Training und Speicherverbrauch. \\
+
+\texttt{EMBEDDING\_DIM} &
+Bestimmt die Zahl der Komponenten jedes Wortvektors. Höhere Dimensionen erhöhen die Repräsentationskapazität und zugleich die Parameterzahl. \\
+
+\texttt{BATCH\_SIZE} &
+Gibt an, wie viele Rezensionen vor einer Gewichtsaktualisierung gemeinsam verarbeitet werden. \\
+
+\texttt{EPOCHS} &
+Bestimmt, wie oft der gesamte Trainingsdatensatz durchlaufen wird. Zu viele Epochen können Overfitting verursachen. \\
+
+\texttt{DROPOUT\_RATE} &
+Deaktiviert während des Trainings zufällig einen Anteil der Neuronen und wirkt dadurch als Regularisierung gegen Overfitting. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Baseline: TF--IDF und logistische Regression}
+
+\subsubsection{Methodische Idee}
+
+TF--IDF beschreibt die Wichtigkeit eines Wortes anhand seiner Häufigkeit innerhalb eines Dokuments und seiner Seltenheit im gesamten Korpus. Für einen Term \(t\) und ein Dokument \(d\) gilt vereinfacht:
+\[
+\operatorname{TFIDF}(t,d)
+=
+\operatorname{TF}(t,d)
+\cdot
+\log\left(\frac{N}{\operatorname{DF}(t)}\right).
+\]
+
+Häufige Wörter innerhalb einer Rezension erhalten einen hohen Wert, sofern sie nicht in fast allen Dokumenten vorkommen. Die resultierenden Merkmalsvektoren werden einer logistischen Regression übergeben. Diese Baseline ist methodisch wichtig, weil ein komplexeres neuronales Modell nicht automatisch besser sein muss.
+
+\subsubsection{Ergebnisse}
+
+Das TF--IDF-Modell erreichte auf dem Testdatensatz:
+
+\begin{table}[H]
+\centering
+\caption{Ergebnisse des TF--IDF-Baseline-Modells}
+\label{tab:tfidf-results}
+\begin{tabular}{lr}
+\toprule
+\textbf{Metrik} & \textbf{Wert} \\
+\midrule
+Accuracy & 0{,}8887 \\
+Precision & 0{,}8862 \\
+Recall & 0{,}8918 \\
+F1-Score & 0{,}8890 \\
+Trainingszeit & 0{,}80 Sekunden \\
+Anzahl Merkmale & 9772 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.96\textwidth]{figures/tfidf_baseline_terminal.png}
+    \caption{Konsolenausgabe des TF--IDF-Baseline-Modells}
+    \label{fig:tfidf-terminal}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.78\textwidth]{figures/confusion_matrix_tfidf.png}
+    \caption{Konfusionsmatrix des TF--IDF-Modells}
+    \label{fig:confusion-matrix-tfidf}
+\end{figure}
+
+Die Matrix zeigt 11\,069 korrekt erkannte negative und 11\,148 korrekt erkannte positive Rezensionen. 1431 negative Rezensionen wurden fälschlich positiv klassifiziert, während 1352 positive Rezensionen als negativ vorhergesagt wurden. Die Fehler sind damit relativ gleichmäßig auf beide Klassen verteilt.
+
+\subsection{Neuronales Embedding-Modell}
+
+\subsubsection{Architektur}
+
+Das neuronale Modell besteht aus folgenden Schichten:
+
+\begin{enumerate}
+    \item \textbf{Embedding-Schicht:} Jede Token-ID wird auf einen trainierbaren Vektor abgebildet.
+    \item \textbf{GlobalAveragePooling1D:} Die Wortvektoren einer Rezension werden komponentenweise gemittelt.
+    \item \textbf{Dense-Schicht:} Eine vollständig verbundene Schicht lernt nichtlineare Kombinationen der Merkmale.
+    \item \textbf{Dropout-Schicht:} Reduziert Overfitting.
+    \item \textbf{Sigmoid-Ausgabe:} Liefert eine Wahrscheinlichkeit für die positive Klasse.
+\end{enumerate}
+
+Bei einer Wortschatzgröße von 10\,000 und einer Embedding-Dimension von 32 enthält allein die Embedding-Schicht
+\[
+10000 \cdot 32 = 320000
+\]
+trainierbare Parameter. Insgesamt besitzt das Modell 320\,545 Parameter.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.96\textwidth]{figures/embedding_model_training_terminal.png}
+    \caption{Modellzusammenfassung, Trainingsverlauf und Endergebnisse des Embedding-Modells}
+    \label{fig:embedding-model-terminal}
+\end{figure}
+
+\subsubsection{Trainingsergebnisse}
+
+Das neuronale Modell erreichte:
+
+\begin{table}[H]
+\centering
+\caption{Ergebnisse des neuronalen Embedding-Modells}
+\label{tab:embedding-results}
+\begin{tabular}{lr}
+\toprule
+\textbf{Metrik} & \textbf{Wert} \\
+\midrule
+Accuracy & 0{,}8682 \\
+Precision & 0{,}8908 \\
+Recall & 0{,}8394 \\
+F1-Score & 0{,}8643 \\
+Trainingszeit & 21{,}39 Sekunden \\
+Trainierte Epochen & 8 \\
+Trainierbare Parameter & 320\,545 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.49\textwidth}
+        \includegraphics[width=\linewidth]{figures/embedding_accuracy_history.png}
+        \caption{Accuracy-Verlauf}
+        \label{fig:embedding-accuracy-history}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.49\textwidth}
+        \includegraphics[width=\linewidth]{figures/embedding_loss_history.png}
+        \caption{Loss-Verlauf}
+        \label{fig:embedding-loss-history}
+    \end{subfigure}
+    \caption{Trainings- und Validierungsverlauf des Embedding-Modells}
+    \label{fig:embedding-training-history}
+\end{figure}
+
+Die Trainingsgenauigkeit steigt bis auf ungefähr 94{,}6\,\%, während die Validierungsgenauigkeit ab etwa der sechsten Epoche kaum noch zunimmt. Gleichzeitig sinkt der Trainingsverlust kontinuierlich, während der Validierungsverlust nach seinem Minimum wieder ansteigt. Dieses Auseinanderlaufen ist ein typisches Zeichen für Overfitting.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.78\textwidth]{figures/confusion_matrix_embedding.png}
+    \caption{Konfusionsmatrix des neuronalen Embedding-Modells}
+    \label{fig:confusion-matrix-embedding}
+\end{figure}
+
+Das Modell klassifizierte 11\,214 negative und 10\,492 positive Rezensionen korrekt. Auffällig sind 2008 falsch-negative Fälle gegenüber 1286 falsch-positiven Fällen. Dies erklärt die hohe Precision von 0{,}8908 und den niedrigeren Recall von 0{,}8394: Wenn das Modell eine Rezension positiv klassifiziert, ist diese Entscheidung häufig korrekt; gleichzeitig übersieht es jedoch einen größeren Anteil tatsächlich positiver Rezensionen.
+
+\subsection{Vergleich der beiden Modellansätze}
+
+\begin{table}[H]
+\centering
+\caption{Direkter Vergleich von Baseline und Embedding-Modell}
+\label{tab:model-comparison}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Metrik} &
+\textbf{TF--IDF + log. Regression} &
+\textbf{Embedding-Modell} \\
+\midrule
+Accuracy & 0{,}8887 & 0{,}8682 \\
+Precision & 0{,}8862 & 0{,}8908 \\
+Recall & 0{,}8918 & 0{,}8394 \\
+F1-Score & 0{,}8890 & 0{,}8643 \\
+Trainingszeit & 0{,}80 s & 21{,}39 s \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\textwidth]{figures/model_metric_comparison.png}
+    \caption{Vergleich der Klassifikationsmetriken}
+    \label{fig:model-metric-comparison}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.80\textwidth]{figures/training_time_comparison.png}
+    \caption{Vergleich der Trainingszeiten}
+    \label{fig:training-time-comparison}
+\end{figure}
+
+Das TF--IDF-Modell übertrifft das Embedding-Modell bei Accuracy um 2{,}04 Prozentpunkte und beim F1-Score um 2{,}47 Prozentpunkte. Das neuronale Modell erreicht lediglich bei der Precision einen etwas höheren Wert. Gleichzeitig benötigt es ungefähr den Faktor 26{,}88 mehr Trainingszeit.
+
+Dieses Ergebnis ist wissenschaftlich relevant, weil es zeigt, dass ein neuronaler Ansatz nicht automatisch überlegen ist. TF--IDF eignet sich für Sentimentanalyse besonders gut, da einzelne wertende Begriffe wie \emph{excellent}, \emph{boring} oder \emph{worst} starke Hinweise liefern. Das einfache Embedding-Modell mittelt die Wortvektoren und verliert dabei Wortreihenfolge sowie komplexere Kontextbeziehungen. Ein leistungsfähigeres neuronales Modell könnte beispielsweise Convolution-, LSTM-, Attention- oder Transformer-Komponenten verwenden, wäre jedoch deutlich komplexer.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.96\textwidth]{figures/model_comparison_terminal.png}
+    \caption{Konsolenausgabe des automatisierten Modellvergleichs}
+    \label{fig:model-comparison-terminal}
+\end{figure}
+
+\subsection{Experiment 1: Einfluss der Embedding-Dimension}
+
+\subsubsection{Versuchsdesign}
+
+Die Embedding-Dimension bestimmt, wie viele numerische Komponenten zur Repräsentation eines Wortes verwendet werden. Größere Vektoren können theoretisch differenziertere sprachliche Eigenschaften abbilden. Gleichzeitig erhöht sich die Zahl der trainierbaren Parameter nahezu proportional.
+
+Untersucht wurden die Dimensionen 8, 16, 32 und 64. Alle übrigen Einstellungen blieben konstant, damit die Embedding-Dimension die gezielt veränderte Variable darstellt.
+
+\begin{table}[H]
+\centering
+\caption{Ergebnisse des Experiments mit unterschiedlichen Embedding-Dimensionen}
+\label{tab:embedding-dimensions}
+\begin{tabular}{rrrrr}
+\toprule
+\textbf{Dimension} & \textbf{Accuracy} & \textbf{F1-Score} &
+\textbf{Parameter} & \textbf{Zeit [s]} \\
+\midrule
+8  & 0{,}8715 & 0{,}8700 & 80\,161  & --- \\
+16 & 0{,}8711 & 0{,}8693 & 160\,289 & --- \\
+32 & 0{,}8696 & 0{,}8660 & 320\,545 & 24{,}13 \\
+64 & 0{,}8689 & 0{,}8658 & 641\,057 & 37{,}92 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\textwidth]{figures/embedding_dimension_comparison.png}
+    \caption{Accuracy und F1-Score bei verschiedenen Embedding-Dimensionen}
+    \label{fig:embedding-dimension-comparison}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\textwidth]{figures/embedding_dimension_parameters.png}
+    \caption{Anstieg der Parameterzahl bei größeren Embedding-Dimensionen}
+    \label{fig:embedding-dimension-parameters}
+\end{figure}
+
+Die höchste Accuracy wurde mit nur acht Dimensionen erreicht. Eine Erhöhung auf 64 Dimensionen vervielfachte die Parameterzahl von 80\,161 auf 641\,057, ohne die Klassifikationsleistung zu verbessern. Stattdessen sank die Accuracy geringfügig von 0{,}8715 auf 0{,}8689.
+
+Daraus folgt, dass die zusätzliche Modellkapazität für diese Architektur und Aufgabe nicht effizient genutzt wurde. Größere Embeddings sind nicht grundsätzlich besser; ihr Nutzen hängt unter anderem von Datenmenge, Modellarchitektur, Trainingsdauer und Aufgabenkomplexität ab.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.96\textwidth]{figures/embedding_dimensions_terminal.png}
+    \caption{Konsolenausgabe des Experiments zu den Embedding-Dimensionen}
+    \label{fig:embedding-dimensions-terminal}
+\end{figure}
+
+\subsection{Experiment 2: Einfluss der Trainingsdatengröße}
+
+\subsubsection{Versuchsdesign}
+
+Die ursprünglichen 25\,000 Trainingsrezensionen wurden in einen festen Trainingspool mit 20\,000 Beispielen und ein Validierungsset mit 5\,000 Beispielen aufgeteilt. Das ursprüngliche Testset mit 25\,000 Rezensionen blieb unangetastet.
+
+Anschließend wurde dieselbe Modellarchitektur mit 20\,\%, 40\,\%, 60\,\%, 80\,\% und 100\,\% des Trainingspools trainiert. Die Teilmengen waren verschachtelt: Die kleineren Teilmengen waren vollständig in den größeren enthalten. Dadurch wird die Vergleichbarkeit verbessert.
+
+\begin{table}[H]
+\centering
+\caption{Ergebnisse bei unterschiedlichen Trainingsdatengrößen}
+\label{tab:training-sizes}
+\begin{tabular}{rrrrrr}
+\toprule
+\textbf{Anteil} &
+\textbf{Beispiele} &
+\textbf{beste Val.-Acc.} &
+\textbf{Test-Acc.} &
+\textbf{beste Epoche} &
+\textbf{Zeit [s]} \\
+\midrule
+20\,\%  & 4\,000  & 0{,}8502 & 0{,}8434 & 10 & 14{,}14 \\
+40\,\%  & 8\,000  & 0{,}8580 & 0{,}8516 & 7  & 21{,}41 \\
+60\,\%  & 12\,000 & 0{,}8642 & 0{,}8524 & 7  & 22{,}67 \\
+80\,\%  & 16\,000 & 0{,}8728 & 0{,}8470 & 5  & 26{,}87 \\
+100\,\% & 20\,000 & 0{,}8756 & 0{,}8508 & 5  & 32{,}37 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\textwidth]{figures/experiment_training_sizes.png}
+    \caption{Einfluss der Trainingsdatengröße auf Validierungs- und Testgenauigkeit}
+    \label{fig:training-sizes-accuracy}
+\end{figure}
+
+Die beste Validierungsgenauigkeit steigt mit zunehmender Datenmenge kontinuierlich von 0{,}8502 auf 0{,}8756. Die Testgenauigkeit bleibt ab 40\,\% jedoch weitgehend stabil. Der höchste Testwert von 0{,}8524 wurde bei 60\,\% erreicht; die Differenz zum vollständigen Trainingspool beträgt nur 0{,}16 Prozentpunkte.
+
+Die Ergebnisse zeigen damit einen abnehmenden Grenznutzen zusätzlicher Daten. Mehr Trainingsdaten verbessern die Validierungsleistung, der praktische Zugewinn auf unabhängigen Testdaten wird jedoch zunehmend kleiner.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\textwidth]{figures/experiment_training_sizes_duration.png}
+    \caption{Trainingsdauer bei unterschiedlichen Trainingsdatengrößen}
+    \label{fig:training-sizes-duration}
+\end{figure}
+
+Die Trainingsdauer steigt von 14{,}14 Sekunden auf 32{,}37 Sekunden. Bei größeren Datenmengen wird die beste Validierungsgenauigkeit bereits in Epoche 5 erreicht. Danach steigt die Trainingsgenauigkeit weiter, während Validierungsgenauigkeit und Validierungsverlust schlechter werden. Dies spricht für den Einsatz von \emph{Early Stopping}.
+
+\subsection{Kritische Bewertung und Grenzen}
+
+Die Ergebnisse müssen im Kontext der gewählten Architektur interpretiert werden:
+
+\begin{itemize}
+    \item Das Global-Average-Pooling verwirft die Reihenfolge der Wörter.
+    \item Negationen wie \emph{not good} können dadurch nur eingeschränkt modelliert werden.
+    \item Die Beschränkung auf 250 Token entfernt bei ungefähr einem Drittel der Trainingsrezensionen einen Teil des Textes.
+    \item Die Experimente wurden jeweils mit einem festen Zufallsstartwert durchgeführt. Mehrere Wiederholungen mit unterschiedlichen Seeds würden statistisch belastbarere Aussagen erlauben.
+    \item Die Testdaten wurden mehrfach zur Ergebnisanalyse verwendet. Für eine strengere Modellentwicklung wäre zusätzlich ein vollständig zurückgehaltenes finales Testset sinnvoll.
+    \item Die Trainingszeiten hängen von Hardware, TensorFlow-Version und Systemauslastung ab und sind daher nur innerhalb derselben Umgebung direkt vergleichbar.
+\end{itemize}
 
 
 
-\subsection{Vergleich der vier Themen}
+\section{Erklärbare KI: Entscheidungen nachvollziehbar machen}
 
+\subsection{Motivation und Zielsetzung}
 
+Eine hohe Modellgenauigkeit allein reicht nicht aus, um ein
+KI-System vollständig zu bewerten. Zusätzlich ist relevant, auf
+welcher Grundlage ein Modell seine Vorhersagen trifft. Erklärbare
+KI, häufig als Explainable Artificial Intelligence oder XAI
+bezeichnet, umfasst Methoden, mit denen Entscheidungen,
+Einflussfaktoren und Grenzen eines Modells für Menschen
+nachvollziehbarer gemacht werden.
+
+Für die praktische Vertiefung wurde ein Decision Tree auf dem
+Iris-Datensatz trainiert. Dieser Modelltyp eignet sich besonders für
+eine erste XAI-Analyse, weil seine Entscheidungsregeln direkt
+visualisiert werden können. Zusätzlich wurde untersucht, welche
+Merkmale den größten Einfluss auf die Klassifikation besitzen und
+wie eine einzelne Vorhersage zustande kommt.
+
+\subsection{Versuchsaufbau}
+
+Der Iris-Datensatz wurde in Trainings- und Testdaten aufgeteilt.
+Dabei wurden 80\,\% der Daten zum Training und 20\,\% zur Evaluation
+verwendet. Die Aufteilung erfolgte stratifiziert, damit alle drei
+Iris-Arten in beiden Teilmengen vertreten sind.
+
+Als Modell wurde ein Entscheidungsbaum mit einer maximalen Tiefe von
+drei Ebenen eingesetzt. Die begrenzte Baumtiefe verbessert die
+Interpretierbarkeit und reduziert zugleich das Risiko, dass der Baum
+einzelne Trainingsbeispiele auswendig lernt.
+
+Für die reproduzierbare Datenaufteilung wurde ein fester
+\texttt{RANDOM\_SEED} von 42 verwendet. Der Testanteil betrug
+20\,\%, sodass 30 der insgesamt 150 Iris-Instanzen für die
+abschließende Evaluation verwendet wurden.
+
+Die Implementierung befindet sich in der Datei
+\texttt{code/05\_xai/xai\_decision\_tree.py}. Das Skript erzeugt
+einen visualisierten Entscheidungsbaum, eine Darstellung der
+Merkmalsbedeutung und eine schrittweise Erklärung für eine einzelne
+Testvorhersage.
+
+\subsection{Modellleistung}
+
+Der trainierte Entscheidungsbaum erreichte auf dem zurückgehaltenen
+Testdatensatz eine Accuracy von \(0{,}9667\), was einer
+Gesamtgenauigkeit von \(96{,}67\,\%\) entspricht. Von insgesamt
+30 Testinstanzen wurden somit 29 korrekt und eine Instanz falsch
+klassifiziert.
+
+\begin{table}[H]
+\centering
+\caption{Klassifikationsergebnisse des XAI-Experiments}
+\label{tab:xai-classification-results}
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Klasse} &
+\textbf{Precision} &
+\textbf{Recall} &
+\textbf{F1-Score} &
+\textbf{Support} \\
+\midrule
+setosa     & 1{,}00 & 1{,}00 & 1{,}00 & 10 \\
+versicolor & 1{,}00 & 0{,}90 & 0{,}95 & 10 \\
+virginica  & 0{,}91 & 1{,}00 & 0{,}95 & 10 \\
+\midrule
+Macro-Durchschnitt & 0{,}97 & 0{,}97 & 0{,}97 & 30 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Die Klasse \textit{setosa} wurde vollständig korrekt erkannt. Bei
+\textit{versicolor} beträgt der Recall \(0{,}90\), was bedeutet,
+dass eine der zehn tatsächlichen Versicolor-Instanzen nicht korrekt
+als solche erkannt wurde. Der Recall von \textit{virginica} beträgt
+dagegen \(1{,}00\), während die Precision mit \(0{,}91\) etwas
+niedriger liegt. Daraus lässt sich ableiten, dass eine
+Versicolor-Instanz fälschlich als Virginica klassifiziert wurde.
+
+Die hohe Accuracy zeigt, dass der begrenzte Entscheidungsbaum den
+Iris-Datensatz bereits sehr gut klassifiziert. Gleichzeitig ist die
+Modellleistung nicht der alleinige Schwerpunkt dieses Experiments.
+Entscheidend ist zusätzlich, ob die verwendeten Merkmale und
+Entscheidungsregeln nachvollziehbar sind.
+
+\subsection{Visualisierung des Entscheidungsbaums}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]
+    {figures/decision_tree.png}
+    \caption{Visualisierung des trainierten Decision Trees auf dem
+    Iris-Datensatz}
+    \label{fig:xai-decision-tree}
+\end{figure}
+
+Abbildung~\ref{fig:xai-decision-tree} zeigt die vom Modell gelernten
+Entscheidungsregeln. Jeder innere Knoten prüft, ob der Wert eines
+Merkmals unter oder über einem bestimmten Schwellenwert liegt.
+Abhängig vom Ergebnis wird der linke oder rechte Teilbaum gewählt,
+bis ein Blattknoten und damit eine Klassenvorhersage erreicht wird.
+
+Die Visualisierung zeigt, dass der Baum ausschließlich Merkmale der
+Blütenblätter verwendet. Die Kelchblattmerkmale werden in diesem
+Modell nicht für eine Entscheidung benötigt. Dies verdeutlicht, dass
+der Entscheidungsbaum aus den vier verfügbaren Merkmalen nur
+diejenigen auswählt, die für die Trennung der Klassen den größten
+Informationsgewinn liefern.
+
+\subsection{Globale Erklärung durch Feature Importance}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.82\textwidth]
+    {figures/feature_importance.png}
+    \caption{Globale Bedeutung der Merkmale für die Klassifikation}
+    \label{fig:xai-feature-importance}
+\end{figure}
+
+Die Feature Importance beschreibt, wie stark die einzelnen Merkmale
+zur Reduktion der Unreinheit innerhalb des Entscheidungsbaums
+beitragen. Ein hoher Wert bedeutet, dass das Merkmal an wichtigen
+Entscheidungsknoten eingesetzt wurde.
+
+\begin{table}[H]
+\centering
+\caption{Feature Importance des trainierten Entscheidungsbaums}
+\label{tab:xai-feature-importance}
+\begin{tabular}{lr}
+\toprule
+\textbf{Merkmal} & \textbf{Bedeutung} \\
+\midrule
+Petal Length & 0{,}5791 \\
+Petal Width  & 0{,}4209 \\
+Sepal Length & 0{,}0000 \\
+Sepal Width  & 0{,}0000 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Mit einer Bedeutung von \(0{,}5791\) ist \textit{Petal Length} das
+wichtigste Merkmal des Modells. \textit{Petal Width} erreicht einen
+Wert von \(0{,}4209\). Die beiden Kelchblattmerkmale
+\textit{Sepal Length} und \textit{Sepal Width} besitzen in diesem
+trainierten Baum eine Feature Importance von \(0\) und wurden daher
+nicht für die Klassifikation verwendet.
+
+Dieses Ergebnis stimmt mit der explorativen Analyse im
+Data-Mining-Teil überein. Dort war bereits sichtbar, dass sich die
+drei Iris-Arten anhand von \textit{Petal Length} und
+\textit{Petal Width} besonders gut voneinander unterscheiden lassen.
+Die globale XAI-Analyse bestätigt somit die zuvor visuell beobachtete
+Relevanz der Blütenblattmerkmale.
+
+Die Feature Importance stellt eine globale Erklärung dar, weil sie
+das Verhalten des gesamten Modells zusammenfasst. Sie erklärt jedoch
+nicht, wie eine konkrete einzelne Vorhersage entstanden ist.
+
+\subsection{Lokale Erklärung einer einzelnen Vorhersage}
+
+Für die lokale Erklärung wurde eine Testinstanz mit den folgenden
+Merkmalswerten ausgewählt:
+
+\begin{table}[H]
+\centering
+\caption{Merkmalswerte der lokal erklärten Testinstanz}
+\label{tab:xai-local-instance}
+\begin{tabular}{lr}
+\toprule
+\textbf{Merkmal} & \textbf{Wert} \\
+\midrule
+Sepal Length & 4{,}4 \\
+Sepal Width  & 3{,}0 \\
+Petal Length & 1{,}3 \\
+Petal Width  & 0{,}2 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Der Entscheidungspfad dieser Instanz bestand aus nur einem
+Entscheidungsschritt:
+
+\begin{enumerate}
+    \item Am Wurzelknoten wurde geprüft, ob
+    \[
+    \textit{Petal Length} = 1{,}30 \leq 2{,}45
+    \]
+    gilt.
+
+    \item Da die Bedingung erfüllt war, wurde unmittelbar ein
+    Blattknoten erreicht und die Klasse \textit{setosa}
+    vorhergesagt.
+\end{enumerate}
+
+Die tatsächliche Klasse der Instanz war ebenfalls
+\textit{setosa}. Die lokale Erklärung zeigt damit transparent, dass
+für diese Vorhersage ausschließlich die Länge des Blütenblatts
+entscheidend war. Die übrigen drei Merkmale wurden für diese konkrete
+Klassifikation nicht benötigt.
+
+Dieses Beispiel verdeutlicht den Unterschied zwischen globaler und
+lokaler Erklärung. Die globale Feature Importance beschreibt, welche
+Merkmale für das gesamte Modell wichtig sind. Der lokale
+Entscheidungspfad zeigt dagegen, welche konkrete Regel für eine
+einzelne Vorhersage angewendet wurde.
+
+\subsection{Verbindung zu den vorherigen Experimenten}
+
+Das XAI-Experiment verbindet die vorherigen Teile des Portfolios.
+Im Data-Mining-Abschnitt wurden zunächst sichtbare Strukturen im
+Iris-Datensatz untersucht. Im Machine-Learning-Teil wurde mit KNIME
+ein Decision Tree trainiert und anhand seiner Vorhersagequalität
+bewertet. Die XAI-Analyse ergänzt diese Leistungsperspektive um die
+Frage, wie das Modell seine Entscheidungen bildet.
+
+Damit ergeben sich drei unterschiedliche Betrachtungsebenen:
+
+\begin{itemize}
+    \item \textbf{Data Mining:} Welche Muster sind in den Daten
+    sichtbar?
+    \item \textbf{Machine Learning:} Wie genau klassifiziert das
+    Modell neue Daten?
+    \item \textbf{Explainable AI:} Welche Merkmale und Regeln führen
+    zu den Vorhersagen?
+\end{itemize}
+
+\subsection{Kritische Bewertung und Grenzen}
+
+Obwohl ein Entscheidungsbaum gut interpretierbar ist, besitzt auch
+diese Erklärung Grenzen. Die Feature Importance zeigt nur, welche
+Merkmale für den gesamten Baum relevant waren. Sie erklärt nicht,
+ob ein Merkmal den vorhergesagten Wert in eine bestimmte Richtung
+erhöht oder verringert.
+
+Darüber hinaus können sich Entscheidungsbäume bereits durch kleine
+Änderungen der Trainingsdaten verändern. Die dargestellten Regeln
+sind daher nicht automatisch allgemein gültige biologische Regeln,
+sondern das Ergebnis des gewählten Datensatzes, der
+Trainingsaufteilung und der Modellparameter.
+
+Die hohe Accuracy von \(96{,}67\,\%\) basiert auf lediglich
+30 Testinstanzen. Ein einzelner Fehler verändert die Accuracy daher
+bereits um ungefähr 3{,}33 Prozentpunkte. Das Ergebnis sollte deshalb
+nicht als exakte allgemeine Leistungsangabe interpretiert werden,
+sondern als Resultat dieser konkreten Datenaufteilung mit
+\texttt{RANDOM\_SEED}=42.
+
+Die Feature-Importance-Werte gelten nur für den konkret trainierten
+Baum. Bei einer anderen Trainings-Test-Aufteilung oder einer anderen
+maximalen Baumtiefe könnten andere Schwellenwerte und
+Bedeutungswerte entstehen.
+
+Ein weiterer wichtiger Punkt ist, dass Interpretierbarkeit nicht
+mit Korrektheit gleichgesetzt werden darf. Eine verständliche
+Entscheidung kann dennoch falsch sein. Deshalb sollten
+Modellerklärung und klassische Evaluation gemeinsam betrachtet
+werden.
+
+Für komplexere Modelle könnten weiterführende XAI-Methoden wie
+Permutation Importance, LIME oder SHAP eingesetzt werden. Diese
+Verfahren wären insbesondere dann relevant, wenn das zugrunde
+liegende Modell nicht direkt als Entscheidungsbaum visualisiert
+werden kann.
+
+\subsection{Eigene Lernreflexion}
+
+Durch das Experiment wurde für mich deutlich, dass die Bewertung
+eines KI-Modells nicht bei einer hohen Accuracy enden sollte.
+Mindestens ebenso wichtig ist die Frage, ob die verwendeten
+Merkmale und Entscheidungsregeln fachlich plausibel sind.
+
+Besonders hilfreich war die Verbindung zum Data-Mining-Experiment.
+Die dort visuell erkannten Muster wurden durch die Feature
+Importance des Entscheidungsbaums bestätigt. Dadurch wurde sichtbar,
+dass explorative Datenanalyse, Modelltraining und Modellerklärung
+keine getrennten Schritte sind, sondern sich gegenseitig ergänzen.
+
+Ich habe außerdem gelernt, zwischen globalen und lokalen Erklärungen
+zu unterscheiden. Die Feature Importance beschreibt das Modell als
+Ganzes, während der Entscheidungspfad erklärt, warum eine einzelne
+Beobachtung einer bestimmten Klasse zugeordnet wurde.
+
+Besonders überzeugend war für mich, dass die Ergebnisse der
+XAI-Analyse die Beobachtungen aus dem Data-Mining-Teil bestätigten.
+Dort wurden die Blütenblattmerkmale aufgrund der sichtbaren
+Clusterstruktur ausgewählt. Der Entscheidungsbaum zeigte nun
+quantitativ, dass ausschließlich \textit{Petal Length} und
+\textit{Petal Width} für seine Klassifikation relevant waren.
+\section{Abschließende Reflexion und Selbsteinschätzung}
+
+Vor der praktischen Umsetzung erwartete ich, dass das neuronale
+Embedding-Modell die klassische TF--IDF-Baseline übertreffen würde.
+Der Modellvergleich zeigte jedoch das Gegenteil. Die logistische
+Regression war nicht nur genauer, sondern auch deutlich schneller.
+Dadurch wurde für mich sichtbar, dass die Wahl eines geeigneten
+Verfahrens stärker von den Eigenschaften der Aufgabe abhängt als von
+der allgemeinen Komplexität eines Modells.
+
+Besonders wichtig war die Untersuchung der Trainingsverläufe. Eine
+steigende Trainingsgenauigkeit allein bedeutet nicht, dass ein Modell
+besser generalisiert. Erst durch den Vergleich mit
+Validierungsgenauigkeit und Validierungsverlust wurde das beginnende
+Overfitting sichtbar.
+
+Das Experiment zu den Embedding-Dimensionen verdeutlichte außerdem,
+dass zusätzliche Parameter nicht automatisch zusätzliche Qualität
+erzeugen. Bereits acht Dimensionen waren für das gewählte Modell
+ausreichend. Das Trainingsgrößenexperiment zeigte dagegen, dass
+zusätzliche Daten die Validierungsleistung verbesserten, der Nutzen
+für die Testgenauigkeit jedoch ab einem bestimmten Punkt nur noch
+gering war.
+
+Das XAI-Experiment ergänzte diese Erkenntnisse um eine weitere
+Perspektive. Eine hohe Genauigkeit beschreibt nur, wie häufig ein
+Modell korrekt klassifiziert. Der visualisierte Entscheidungsbaum,
+die Feature Importance und der lokale Entscheidungspfad machten
+dagegen sichtbar, auf welcher Grundlage einzelne Vorhersagen
+entstanden. Dadurch wurde für mich deutlich, dass Modellevaluation
+und Modellerklärung unterschiedliche, aber sich ergänzende Aufgaben
+erfüllen.
+
+Besonders wertvoll war die Verbindung der verschiedenen
+Portfolio-Teile. Im Data-Mining-Experiment wurden die
+Blütenblattmerkmale aufgrund sichtbarer Strukturen ausgewählt. Im
+Machine-Learning-Experiment wurde gezeigt, dass ein Decision Tree
+diese Strukturen erfolgreich für die Klassifikation nutzen kann. Die
+XAI-Analyse bestätigte anschließend quantitativ, dass
+\textit{Petal Length} und \textit{Petal Width} die entscheidenden
+Merkmale des trainierten Baums waren.
+
+Als nächste Verbesserung würde ich Early Stopping direkt in das
+Deep-Learning-Training integrieren und jede Konfiguration mit
+mehreren Zufallsstartwerten wiederholen. Für komplexere Modelle
+könnten außerdem weiterführende XAI-Verfahren wie SHAP oder LIME
+untersucht werden.
+
+Insgesamt dokumentiert das ePortfolio nicht nur fertige Ergebnisse,
+sondern auch methodische Entscheidungen, Beobachtungen, Grenzen und
+persönliche Lernfortschritte. Es kann mir über das Modul hinaus als
+Grundlage für weitere Arbeiten in den Bereichen KI, Datenanalyse,
+Informationssysteme und SAP-bezogene Anwendungen dienen.
+\section{Bezüge zwischen den Themen}
+
+Die praktischen Vertiefungen bilden gemeinsam einen
+zusammenhängenden KI-Prozess:
+
+\begin{itemize}
+    \item \textbf{Data Mining:}
+    Die explorative Analyse macht erste Strukturen und relevante
+    Merkmale im Iris-Datensatz sichtbar.
+
+    \item \textbf{Machine Learning:}
+    Der Decision Tree nutzt diese Merkmale, um bislang nicht
+    verwendete Datenpunkte zu klassifizieren.
+
+    \item \textbf{Deep Learning:}
+    Das Embedding-Modell lernt für unstrukturierte Textdaten eigene
+    Merkmalsrepräsentationen.
+
+    \item \textbf{Modellevaluation:}
+    Accuracy, Precision, Recall, F1-Score und Konfusionsmatrizen
+    zeigen, wie zuverlässig die Modelle klassifizieren und welche
+    Fehlerarten auftreten.
+
+    \item \textbf{Explainable AI:}
+    Der visualisierte Entscheidungsbaum, die Feature Importance und
+    der lokale Entscheidungspfad machen sichtbar, auf welchen
+    Merkmalen und Regeln eine Vorhersage beruht.
+
+    \item \textbf{Bezug zu Informationssystemen:}
+    Vergleichbare Verfahren könnten Kundenfeedback, Support-Tickets
+    oder SAP-bezogene Freitexte klassifizieren. In betrieblichen
+    Anwendungen wäre neben der Modellleistung auch eine
+    nachvollziehbare Begründung der Entscheidung wichtig.
+\end{itemize}
+\section{Reproduzierbarkeit}
+
+Die Deep-Learning-Experimente können aus dem Projektverzeichnis in
+folgender Reihenfolge ausgeführt werden:
+
+\begin{verbatim}
+cd code/04_deep_learning
+python data_utils.py
+python prepare_sequences.py
+python train_tfidf_baseline.py
+python train_embedding_model.py
+python compare_models.py
+python experiment_embedding_dimensions.py
+python experiment_training_sizes.py
+\end{verbatim}
+
+Das XAI-Experiment kann anschließend wie folgt ausgeführt werden:
+
+\begin{verbatim}
+cd ../05_xai
+python xai_decision_tree.py
+\end{verbatim}
+
+Die numerischen Ausgaben der Deep-Learning-Experimente werden im
+jeweiligen Verzeichnis \texttt{outputs} als JSON-, CSV- oder
+NPZ-Dateien gespeichert. Die erzeugten Diagramme und
+Konfusionsmatrizen befinden sich im Verzeichnis \texttt{results}.
+
+Das XAI-Skript speichert den visualisierten Entscheidungsbaum und die
+Feature-Importance-Grafik im Verzeichnis \texttt{results}. Die
+Modellmetriken, Feature-Importance-Werte und der lokale
+Entscheidungspfad werden zusätzlich in
+\texttt{outputs/xai\_results.txt} dokumentiert.
+
+Dadurch sind Implementierung, Rohmetriken, textuelle Ausgaben und
+Visualisierungen voneinander getrennt und dennoch eindeutig
+miteinander verknüpft.
 
 \begin{thebibliography}{99}
 
@@ -1093,10 +2007,49 @@ Verfügbar unter:
 \url{https://scikit-learn.org/stable/auto_examples/datasets/plot_iris_dataset.html}
 (zuletzt abgerufen am 30.05.2026).
 
-\bibitem{jier_data_mining_bi}
-Journal of Informatics Education and Research:
-Data Mining in Business Intelligence \& Decision Making.
-Fachartikel, 2023.
+\bibitem{maas_imdb}
+Maas, A. L. / Daly, R. E. / Pham, P. T. / Huang, D. / Ng, A. Y. / Potts, C.:
+Learning Word Vectors for Sentiment Analysis.
+In: \textit{Proceedings of the 49th Annual Meeting of the Association for Computational Linguistics},
+2011, S. 142--150. 
+
+\bibitem{waymo_phoenix}
+Waymo:
+\textit{Self-Driving Car Service in Phoenix}.
+Online verfügbar unter:
+\url{https://waymo.com/rides/phoenix/}
+(zuletzt abgerufen am 15.07.2026).
+
+\bibitem{mercedes_drive_pilot}
+Mercedes-Benz Group:
+\textit{DRIVE PILOT: Bedingt automatisiertes Fahren nach SAE Level 3}.
+Online verfügbar unter:
+\url{https://group.mercedes-benz.com/technology/autonomous-driving/driving/drive-pilot-95-kmh.html}
+(zuletzt abgerufen am 15.07.2026).
+
+\bibitem{china_av}
+Baidu Apollo:
+\textit{Apollo Autonomous Driving Platform}.
+Online verfügbar unter:
+\url{https://www.apollo.auto/en/}
+(zuletzt abgerufen am 15.07.2026).
+
+\bibitem{singapore_av}
+Land Transport Authority Singapore:
+\textit{Autonomous Vehicles}.
+Online verfügbar unter:
+\url{https://www.lta.gov.sg/content/ltagov/en/industry_innovations/technologies/autonomous_vehicles.html}
+(zuletzt abgerufen am 15.07.2026).
+
+\bibitem{molnar_xai}
+Molnar, C.:
+\textit{Interpretable Machine Learning: A Guide for Making Black Box
+Models Explainable}.
+2. Auflage, 2022.
+Online verfügbar unter:
+\url{https://christophm.github.io/interpretable-ml-book/}
+(zuletzt abgerufen am 15.07.2026).
 
 \end{thebibliography}
+
 \end{document}

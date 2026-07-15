@@ -1,0 +1,21 @@
+{
+  "max_sequence_length": 250,
+  "training_data": {
+    "minimum": 11,
+    "maximum": 2494,
+    "mean": 238.71364,
+    "median": 178.0,
+    "percentile_90": 467.0,
+    "percentile_95": 610.0,
+    "truncation_share": 0.31312
+  },
+  "test_data": {
+    "minimum": 7,
+    "maximum": 2315,
+    "mean": 230.8042,
+    "median": 174.0,
+    "percentile_90": 446.1000000000022,
+    "percentile_95": 586.0,
+    "truncation_share": 0.29432
+  }
+}
