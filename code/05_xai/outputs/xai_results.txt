@@ -1,0 +1,35 @@
+XAI-Experiment mit Decision Tree
+========================================
+
+Accuracy: 0.9667
+Maximale Baumtiefe: 3
+Testanteil: 20%
+Random Seed: 42
+
+Klassifikationsbericht:
+              precision    recall  f1-score   support
+
+      setosa       1.00      1.00      1.00        10
+  versicolor       1.00      0.90      0.95        10
+   virginica       0.91      1.00      0.95        10
+
+    accuracy                           0.97        30
+   macro avg       0.97      0.97      0.97        30
+weighted avg       0.97      0.97      0.97        30
+
+Feature Importance:
+          Merkmal  Bedeutung
+petal length (cm)   0.579077
+ petal width (cm)   0.420923
+sepal length (cm)   0.000000
+ sepal width (cm)   0.000000
+
+Beispiel einer lokalen Erklärung:
+ sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)
+               4.4               3.0                1.3               0.2
+
+Tatsächliche Klasse: setosa
+Vorhergesagte Klasse: setosa
+
+- Knoten 0: petal length (cm) = 1.30 <= 2.45
+- Blattknoten 1: endgültige Klassifikation erreicht.
